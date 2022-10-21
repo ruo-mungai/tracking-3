@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Cohort.create(name:'class_2022')
-User.first_or_create(name: 'test', nickname:'test', email: 'test@gmail.com',
+User.first_or_create(first_name: 'test', last_name:'test', email: 'test@gmail.com',
                      password: '123456',
                      password_confirmation: '123456',
                      role: 0,
                     cohort_id: 1)
-Project.create(name:'tracking app', category:'web app', description:'application to test projects progress', github:'test.github', user_id:1)
+Project.create(name:'tracking app', category:'Fullstack', description:'application to test projects progress', github_link:'test.github', user_id:1)
 Member.create(name:'testers' , user_id:1, project_id:1)
 
 

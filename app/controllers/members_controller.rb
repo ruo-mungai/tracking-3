@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_member, only: %i[ show update destroy ]
 
   # GET /members

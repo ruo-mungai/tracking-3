@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_project, only: %i[ show update destroy ]
 
   # GET /projects
