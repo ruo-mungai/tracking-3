@@ -8,6 +8,9 @@ gem "rails", "~> 7.0.4"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+# serializer
+gem "active_model_serializers", "~> 0.10.12"
+gem 'devise_token_auth'
 
 gem 'active_model_serializers', '~> 0.10.12'
 
