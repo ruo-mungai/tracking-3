@@ -12,7 +12,7 @@ gem "pg", "~> 1.1"
 gem "active_model_serializers", "~> 0.10.12"
 gem 'devise_token_auth'
 
-gem 'active_model_serializers', '~> 0.10.12'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -50,7 +50,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-gem 'active_model_serializers', '~> 0.10.12'
-
-gem 'devise_token_auth'
