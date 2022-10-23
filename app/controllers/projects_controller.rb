@@ -36,8 +36,12 @@ class ProjectsController < ApplicationController
   end
 
   # DELETE /projects/1
-  def destroy
+   def destroy
+    if current_user.role=="admin"
     @project.destroy
+    else
+      render json: { error: "You are not an admin" }, status: :not_found
+    end
   end
 
   private
