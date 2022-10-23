@@ -29,7 +29,8 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(project_params)
+    if @project.id=current_user.id 
+      @project.update(project_params)
       render json: @project
     else
       render json: @project.errors, status: :unprocessable_entity
