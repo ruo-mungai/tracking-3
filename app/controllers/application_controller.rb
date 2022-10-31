@@ -1,14 +1,22 @@
 class ApplicationController < ActionController::API
-        before_action :configure_permitted_parameters, if: :devise_controller?
-        include DeviseTokenAuth::Concerns::SetUserByToken
-        
+ include ActionController::Cookies
 
-        
+  rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  protected
+  before_action :authorize
+  skip_before_action :authorize, only: :create
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+
+  private
+
+  def authorize
+    @current_user = User.find_by(id: session[:user_id])
+
+    render json: { errors: ["Signin or Signup"] }, status: :unauthorized unless @current_user
   end
+  
 
+  def render_unprocessable_entity_response(exception)
+    render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+  end
 end

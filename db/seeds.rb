@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Cohort.create(name:'class_2022')
-User.first_or_create(first_name: 'test', last_name:'test', email: 'test@gmail.com',
+User.first_or_create(username: 'test',
                      password: '123456',
                      password_confirmation: '123456',
                      role: 0,

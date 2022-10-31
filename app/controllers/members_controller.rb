@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
-  before_action :set_member, only: %i[ show update destroy ]
+  # before_action :set_member, only: %i[ show update destroy ]
 
   # GET /members
   def index
@@ -18,6 +18,7 @@ class MembersController < ApplicationController
   # POST /members
   def create
     @member = Member.new(member_params)
+    # @member.project_id=Project.id
 
     if @member.save
       render json: @member, status: :created, location: @member
@@ -39,6 +40,16 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
   end
+
+  #  def my_member
+  #   @member= Member.find_by(project_id:params[:project_id])
+  #   render json: @member
+  # end
+
+  #    def my_create
+  #   @member= Member.find_by(project_id:params[:project_id])
+  #   render json: @member
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
