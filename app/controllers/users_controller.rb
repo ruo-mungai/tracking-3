@@ -16,10 +16,27 @@ class UsersController < ApplicationController
     def show
       render json: @current_user
     end
+
+      def update
+  if
+      @user.update(user_params)
+      render json: @user
+  else
+      render json: @user.errors, status: :unprocessable_entity
+  end
+  end
+
+     # DELETE /users/1
+    def destroy
+        res = User.find(params[:id])
+        res.destroy
+        head :no_content
+    end
+    
   
     private
   
     def user_params
-      params.permit(:username, :password, :password_confirmation,:role, :cohort_id, :last_name)
+      params.permit(:username, :password, :password_confirmation,:role, :cohort_id)
     end
 end

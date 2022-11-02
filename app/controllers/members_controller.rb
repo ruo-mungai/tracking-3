@@ -18,7 +18,7 @@ class MembersController < ApplicationController
   # POST /members
   def create
     @member = Member.new(member_params)
-    # @member.project_id=Project.id
+    @member.user_id=session[:user_id]
 
     if @member.save
       render json: @member, status: :created, location: @member

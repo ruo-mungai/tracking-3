@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
 
   # DELETE /projects/1
    def destroy
-    if current_user.role=="admin"
+    if @current_user.role=="admin"
     @project.destroy
     else
       render json: { error: "You are not an admin" }, status: :not_found
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   end
 
   def my_project
-    @project= current_user.projects
+    @project= @current_user.projects
     render json: @project
   end
 
@@ -60,6 +60,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :category, :description,:github_link, :user_id)
+      params.require(:project).permit(:name, :category, :description,:github_link)
     end
 end
