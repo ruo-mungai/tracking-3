@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     def create
       user = User.create!(user_params)
       session[:user_id] = user.id
+      
       render json: user, status: :created
     end
   
@@ -17,14 +18,11 @@ class UsersController < ApplicationController
       render json: @current_user
     end
 
-      def update
-  if
-      @user.update(user_params)
-      render json: @user
-  else
-      render json: @user.errors, status: :unprocessable_entity
-  end
-  end
+   def update
+        user = User.find(params[:id])
+        user.update!(user_params)
+        render json: user
+    end
 
      # DELETE /users/1
     def destroy
