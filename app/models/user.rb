@@ -14,6 +14,6 @@ end
   has_many :projects
   has_many :members
   has_one :profile
-  # belongs_to :cohort
+  belongs_to :cohort
  after_create :build_profile
 end

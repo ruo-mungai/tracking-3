@@ -2,6 +2,7 @@ class CohortsController < ApplicationController
   # before_action :authenticate_user!
 
   # before_action :set_cohort, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: :index
 
   # GET /cohorts
   def index
